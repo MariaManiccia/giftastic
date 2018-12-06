@@ -23,6 +23,7 @@ $(document).ready(function () {
             //push it to the html
             $("#buttons-view").append(a);
         };
+
     };
 
     //create a new button when the submit button is clicked
@@ -56,14 +57,37 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET",
         }).then(function (response) {
+            // gather results
+            var results = response.data;
+            console.log(results);
 
-            $("#buttons-view").text(JSON.stringify(response));
+            //push the image and rating to the html
+            for (var i = 0; i < results.length; i++) {
+
+                var resultsArea = $("<div class='col-md-4'>");
+                var rating = results[i].rating;
+                var defaultAni = results[i].images.fixed_height.url;
+                var staticAni = results[i].images.fixed_height_still.url;
+                var gifImage = $("<img>");
+                var p = $("<p>").text("Rating: " + rating);
+
+                gifImage.attr("src", staticAni);
+                gifImage.addClass("themeGiphy");
+                gifImage.attr("data-state", "still");
+                gifImage.attr("data-still", staticAni);
+                gifImage.attr("data-animate", defaultAni);
+                resultsArea.append(p);
+                resultsArea.append(gifImage);
+                $("#gifArea").prepend(resultsArea);
+
+            };
 
         });
     };
 
-    //display the GIFS
     $(document).on("click", ".pokemon", getGifs);
+
+
 
 });
 
