@@ -2,7 +2,7 @@ $(document).ready(function () {
     console.log("Ready!");
 
     //array of animals
-    var pokemons = ["squirtle", "bulbasaur", "pikachu", "charmander", "eevee"];
+    var topics = ["squirtle", "bulbasaur", "pikachu", "charmander", "eevee"];
 
 
     //function for creating buttons
@@ -12,13 +12,13 @@ $(document).ready(function () {
         $("#buttons-view").empty();
 
         //loop throught the array and create a button for each one
-        for (i = 0; i < pokemons.length; i++) {
+        for (i = 0; i < topics.length; i++) {
 
             var a = $("<button>");
 
             a.addClass("pokemon");
-            a.attr("data-name", pokemons[i]);
-            a.text(pokemons[i]);
+            a.attr("data-name", topics[i]);
+            a.text(topics[i]);
 
             //push it to the html
             $("#buttons-view").append(a);
@@ -35,7 +35,7 @@ $(document).ready(function () {
         var newPoke = $("#button-input").val().trim();
 
         //place it in the array
-        pokemons.push(newPoke);
+        topics.push(newPoke);
 
         //call the button function
         createButtons();
@@ -50,7 +50,7 @@ $(document).ready(function () {
     function getGifs() {
 
         var pokemon = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + pokemon + "&api_key=EmF2MFlKKFUnpQ8CqoVhtg9iwrDphNbB&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + pokemon + "&api_key=EmF2MFlKKFUnpQ8CqoVhtg9iwrDphNbB&limit=10&rating=pg";
 
 
         $.ajax({
@@ -64,7 +64,7 @@ $(document).ready(function () {
             //push the image and rating to the html
             for (var i = 0; i < results.length; i++) {
 
-                var resultsArea = $("<div class='col-md-4'>");
+                var resultsArea = $("<div class='col-md-6'>");
                 var rating = results[i].rating;
                 var defaultAni = results[i].images.fixed_height.url;
                 var staticAni = results[i].images.fixed_height_still.url;
@@ -72,7 +72,7 @@ $(document).ready(function () {
                 var p = $("<p>").text("Rating: " + rating);
 
                 gifImage.attr("src", staticAni);
-                gifImage.addClass("themeGiphy");
+                gifImage.addClass("giphy");
                 gifImage.attr("data-state", "still");
                 gifImage.attr("data-still", staticAni);
                 gifImage.attr("data-animate", defaultAni);
@@ -86,6 +86,21 @@ $(document).ready(function () {
     };
 
     $(document).on("click", ".pokemon", getGifs);
+
+    function animateGifs() {
+
+        var state = $(this).attr("data-state");
+
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        };
+    };
+
+    $(document).on("click", ".giphy", animateGifs);
 
 
 
