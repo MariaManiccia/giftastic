@@ -2,7 +2,7 @@ $(document).ready(function () {
     console.log("Ready!");
 
     //array of animals
-    var topics = ["squirtle", "bulbasaur", "pikachu", "charmander", "eevee"];
+    var topics = ["the good dinosaur", "a bug's life", "cars 2", "brave", "cars 3", "coco", "monster's university", "finding dory", "bao",];
 
 
     //function for creating buttons
@@ -14,9 +14,9 @@ $(document).ready(function () {
         //loop throught the array and create a button for each one
         for (i = 0; i < topics.length; i++) {
 
-            var a = $("<button>");
+            var a = $("<button class='btn btn-danger'>");
 
-            a.addClass("pokemon");
+            a.addClass("pixar");
             a.attr("data-name", topics[i]);
             a.text(topics[i]);
 
@@ -32,10 +32,10 @@ $(document).ready(function () {
         event.preventDefault();
 
         //grab the input
-        var newPoke = $("#button-input").val().trim();
+        var newPix = $("#button-input").val().trim();
 
         //place it in the array
-        topics.push(newPoke);
+        topics.push(newPix);
 
         //call the button function
         createButtons();
@@ -49,14 +49,17 @@ $(document).ready(function () {
     //create a function to get the correct GIFs
     function getGifs() {
 
-        var pokemon = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + pokemon + "&api_key=EmF2MFlKKFUnpQ8CqoVhtg9iwrDphNbB&limit=10&rating=pg";
-
+        var pixar = $(this).attr("data-name");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + pixar + "&api_key=EmF2MFlKKFUnpQ8CqoVhtg9iwrDphNbB&limit=10&rating=pg";
 
         $.ajax({
             url: queryURL,
             method: "GET",
         }).then(function (response) {
+
+            // clear the area
+            $("#gifArea").html(" ");
+
             // gather results
             var results = response.data;
             console.log(results);
@@ -70,7 +73,7 @@ $(document).ready(function () {
                 var staticAni = results[i].images.fixed_height_still.url;
                 var gifImage = $("<img>");
                 var p = $("<p>").text("Rating: " + rating);
-
+                
                 gifImage.attr("src", staticAni);
                 gifImage.addClass("giphy");
                 gifImage.attr("data-state", "still");
@@ -85,7 +88,7 @@ $(document).ready(function () {
         });
     };
 
-    $(document).on("click", ".pokemon", getGifs);
+    $(document).on("click", ".pixar", getGifs,);
 
     function animateGifs() {
 
@@ -99,8 +102,8 @@ $(document).ready(function () {
             $(this).attr("data-state", "still");
         };
     };
-
-    $(document).on("click", ".giphy", animateGifs);
+    
+    $(document).on("click", ".giphy", animateGifs,);
 
 
 
