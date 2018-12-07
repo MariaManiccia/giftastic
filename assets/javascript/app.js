@@ -71,8 +71,8 @@ $(document).ready(function () {
                 var rating = results[i].rating;
                 var defaultAni = results[i].images.fixed_height.url;
                 var staticAni = results[i].images.fixed_height_still.url;
-                var gifImage = $("<img>");
-                var p = $("<p>").text("Rating: " + rating);
+                var gifImage = $("<img class='rounded mx-auto d-block'>");
+                var p = $("<p class='lead'>").text("Rating: " + rating);
                 
                 gifImage.attr("src", staticAni);
                 gifImage.addClass("giphy");

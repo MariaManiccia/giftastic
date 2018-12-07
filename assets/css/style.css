@@ -1,9 +1,28 @@
 body {
-    background-image: url("C:/giftastic/assets/images/Walle169.jpg");
+    background-image: url("/giftastic/assets/images/Walle169.jpg");
 }
 
-;
+#buttonGen {
+    display: inline;
+}
+
+#searchTxt {
+    color: white;
+    font-size: medium;
+}
+
+#buttonGen {
+    padding-right: 140px;
+    padding-top: 80px;
+    float: right;
+}
+
+p {
+    color: white;
+    text-align: center;
+}
+
 #gifArea {
-    height: auto;
-    width: auto;
+    float: left;
+    border: 15px, solid, red;
 }
