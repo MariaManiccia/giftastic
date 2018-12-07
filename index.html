@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <title>GIFtastic</title>
-    <!---<link rel="stylesheet" type="text/css" href="assets/css/reset.css">-->
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
@@ -12,10 +13,11 @@
     <script src="assets/javascript/app.js"></script>
 </head>
 
-<body class="img-fluid. max-width: 100%">
+<body>
     <div id="buttons-view" class="conatiner col-12"></div>
 
-    <form id="buttonGen">
+    <form id="buttonGen" class="container col-3">
+        <p>Help Wall-E look for GIFs of his friends by clicking and creating buttons to search for GIFs.</p>
         <label id="searchTxt" class="lead" for="button-input">Type Here to Create a Button</label><br>
         <input type="text" id="button-input"><br>
         <input class="btn btn-danger" id="add-button" type="submit" value="Add a Button">

@@ -73,7 +73,7 @@ $(document).ready(function () {
                 var staticAni = results[i].images.fixed_height_still.url;
                 var gifImage = $("<img class='rounded mx-auto d-block'>");
                 var p = $("<p class='lead'>").text("Rating: " + rating);
-                
+
                 gifImage.attr("src", staticAni);
                 gifImage.addClass("giphy");
                 gifImage.attr("data-state", "still");
@@ -88,7 +88,7 @@ $(document).ready(function () {
         });
     };
 
-    $(document).on("click", ".pixar", getGifs,);
+    $(document).on("click", ".pixar", getGifs);
 
     function animateGifs() {
 
@@ -102,8 +102,8 @@ $(document).ready(function () {
             $(this).attr("data-state", "still");
         };
     };
-    
-    $(document).on("click", ".giphy", animateGifs,);
+
+    $(document).on("click", ".giphy", animateGifs);
 
 
 

@@ -1,5 +1,7 @@
 body {
     background-image: url("/giftastic/assets/images/Walle169.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #buttonGen {
@@ -9,20 +11,27 @@ body {
 #searchTxt {
     color: white;
     font-size: medium;
+    text-align: center;
+}
+
+#add-button{
+    float: right;
 }
 
 #buttonGen {
     padding-right: 140px;
-    padding-top: 80px;
+    padding-top: 5px;
     float: right;
 }
 
 p {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: larger;
     color: white;
     text-align: center;
 }
 
 #gifArea {
     float: left;
-    border: 15px, solid, red;
+    padding-left: 15px;
 }
