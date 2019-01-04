@@ -1,11 +1,11 @@
-Hello!
+<h1>GIPHY Search Engine</h1>
 
-Welcome to my gif search engine made with html, css, javascript, jQuery, ajax, and the Giphy API.
-
-Help Wall-E look at GIFs of his friends by using the search bar to look up some of his pixar friends. You can add your own button to add to the others so you can have quick access to them.
-
-
-This was done for Case Western's full stack coding bootcamp. 
-
-Maria Maniccia
-12/18
+<h3>This game was made with HTML, CSS, JavaScript, JQuery, AJAX, and the GIPHY API.</h3>
+<br>
+Instructions::
+Click any button of the Pixar movie that you'd like to see GIFs of. If you'd like, you can create a new button of a new movie and get GIFs of those as well. Enjoy!
+<br>
+<br>
+https://mariamaniccia.github.io/giftastic/
+<br>
+This is a site built by Maria Maniccia for Case Western University's Full Stack Bootcamp. 2018
