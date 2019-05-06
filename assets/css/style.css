@@ -8,6 +8,11 @@ body {
     display: inline;
 }
 
+form {
+    padding-top:50px !important;
+    padding-right: 20px !important;
+}
+
 #searchTxt {
     color: white;
     font-size: medium;
@@ -34,4 +39,8 @@ p {
 #gifArea {
     float: left;
     padding-left: 15px;
+}
+
+.btn-danger {
+    margin: 10px;
 }
